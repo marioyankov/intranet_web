@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1 class="title">Computers</h1>
+
+<section class="computers">
+    {% for computer in computers %}
+        <article>
+            <h3>Computer</h3>
+            <h4>User Full Name: {{ computer.user }}</h4>
+            <p>manufacturer: {{ computer.manufacturer }}</p>
+            <p>model: {{ computer.model }}</p>
+            <p>serial_number: {{ computer.serial_number }}</p>
+            <p>cpu: {{ computer.cpu }}</p>
+            <p>RAM: {{ computer.ram }}</p>
+            <p>drive: {{ computer.drive }}</p>
+            <p>MAC: {{ computer.mac_address }}</p>
+            <p>Waranty: {{ computer.document }}</p>
+        </article>
+    {% endfor %}
+</section>
+
+<section class="computers">
+    {% for laptop in laptops %}
+        <article>
+            <h3>Laptop</h3>
+            <h4>User Full Name: {{ laptop.user }}</h4>
+            <p>manufacturer: {{ laptop.manufacturer }}</p>
+            <p>model: {{ laptop.model }}</p>
+            <p>serial_number: {{ laptop.serial_number }}</p>
+            <p>cpu: {{ laptop.cpu }}</p>
+            <p>RAM: {{ laptop.ram }}</p>
+            <p>drive: {{ laptop.drive }}</p>
+            <p>MAC: {{ laptop.mac_address }}</p>
+            <p>Waranty: {{ laptop.document }}</p>
+        </article>
+    {% endfor %}
+</section>
+
+<section class="computers">
+    {% for monitor in monitors %}
+        <article>
+            <h3>Monitor</h3>
+            <h4>User Full Name: {{ monitor.user }}</h4>
+            <p>manufacturer: {{ monitor.manufacturer }}</p>
+            <p>model: {{ monitor.model }}</p>
+            <p>serial_number: {{ monitor.serial_number }}</p>
+            <p>size: {{ monitor.size }}</p>
+            <p>Ports: {{ monitor.ports }}</p>
+            <p>Waranty: {{ monitor.document }}</p>
+        </article>
+    {% endfor %}
+</section>
+
+{% endblock content %}

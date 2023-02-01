@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<h1 class="title">Toners</h1>
+
+<section class="toners">
+    <article  class="toner-left">
+        {% for toner in toners %}
+            <article class="toner-body">
+                <h2 class="card-title">{{ toner.model}}</h2>
+                <h3 class="card-subtitle">quantity {{ toner.quantity }}</h3>
+                <p class="card-text">Some example to build card description for example models of printers</p>
+            </article>
+        {% endfor %}
+    </article>
+
+    <article class="toner-right">
+        <h2>Recomended toners in storage</h2>
+        <div class="card-body">
+            {% for toner in toners %}
+                <h4>{{ toner.model }}</h4>
+                <p>{{ toner.recomended_quantity }}</p>
+            {% endfor %}
+        </div>
+    </article>
+
+</section>
+
+{% endblock content %}

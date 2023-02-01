@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<h1 class="title">Requests</h1>
+
+<form id="form-container" method="POST">
+    {% csrf_token %}
+    {{ request_formset.management_form }}
+    {% for form in request_formset %}
+    <div class="request-form">
+        {{ form.as_p }}
+    </div>
+    {% endfor %}
+    <button id="add-form" type="button">+</button>
+    <button type="submit">Create Request</button>
+</form>
+
+
+{% endblock content %}

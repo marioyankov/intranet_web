@@ -1,0 +1,30 @@
+{% load static %}
+
+<nav>
+    <section class="title-logo">
+        <h2>Intranet</h2>
+    </section>
+    <ul>
+        <li>
+            <a hreflang="lang_code" href="{% url 'index' %}">Home</a>
+        </li>
+        <li>
+            <a hreflang="lang_code" href="{% url 'employees' %}">Employees</a>
+        </li>
+        <li>
+            <a href="{% url 'computers' %}">Computers</a>
+        </li>
+        <li>
+            <a href="{% url 'printers' %}">Printers</a>
+        </li>
+        <li>
+            <a href="{% url 'toners' %}">Toners</a>
+        </li>
+        <li>
+            <a href="{% url 'drums' %}">Drums</a>
+        </li>
+        <li>
+            <a href="{% url 'toner requests' %}">Toner Request</a>
+        </li>
+    </ul>
+</nav>

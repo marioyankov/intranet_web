@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1 class="title">Printers</h1>
+
+<section class="printers">
+    {% for printer in printers %}
+        <article>
+            <h4>User Full Name: {{ printer.user }}</h4>
+            <p>manufacturer: {{ printer.manufacturer }}</p>
+            <p>model: {{ printer.model }}</p>
+            <p>serial_number: {{ printer.serial_number }}</p>
+            <p>toner: {{ printer.toner }}</p>
+            <p>drum: {{ printer.drum }}</p>
+            <p>MAC: {{ printer.mac_address }}</p>
+            <p>Waranty: {{ printer.document }}</p>
+        </article>
+    {% endfor %}
+</section>
+
+{% endblock content %}

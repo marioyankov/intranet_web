@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1 class="title">Employees</h1>
+
+<section class="employees">
+    {% for employee in employees %}
+        <article>
+            <h3>{{ employee.first_name }} {{ employee.last_name}}</h3>
+            <p>mobile: {{ employee.mobile }}</p>
+            <p>E-mail: {{ employee.email }}</p>
+            <p>Place of work: {{ employee.place_of_work }}</p>
+        </article>
+    {% endfor %}
+</section>
+
+{% endblock content %}
