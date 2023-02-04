@@ -61,3 +61,39 @@
     transform: translateY(-1rem) rotate(2deg);
 }
 
+.form-section {
+    margin: 50px 30px 30px 30px;
+    padding: 15px;
+
+}
+
+.request-form p {
+    padding-bottom: 20px;
+}
+
+.request-form p label,
+.request-form p select,
+.request-form p input  {
+    font-size: 30px;
+}
+
+.request-form p:nth-child(2) {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #33adff;
+}
+
+.btn-add-form,
+.submit-btn {
+    font-size: 25px;
+    padding: 15px 20px;
+    margin-right: 15px;
+    background-color: #33adff;
+    border: 2px solid #33adff;
+    border-radius: 25px;
+}
+
+.btn-add-form:hover,
+.submit-btn:hover {
+    background-color: #fff;
+    transition: ease 0.5s;
+}

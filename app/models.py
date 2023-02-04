@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 PLACE_OF_WORK_CHOICES = [
@@ -127,3 +128,7 @@ class Request(models.Model):
     CARTRIDGE_CHOICES = list(Toner.objects.values_list('model','model'))
     cartridge_name = models.CharField(max_length=150, choices=CARTRIDGE_CHOICES, default='none')
     quantity = models.IntegerField()
+    date_created = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.cartridge_name

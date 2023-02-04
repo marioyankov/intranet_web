@@ -4,5 +4,5 @@ from .models import Request
 RequestFormSet = modelformset_factory(
     Request,
     fields=("cartridge_name", "quantity"),
-    extra=1
+    extra=1,
 )
