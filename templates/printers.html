@@ -8,14 +8,13 @@
 <section class="printers">
     {% for printer in printers %}
         <article>
-            <h4>User Full Name: {{ printer.user }}</h4>
-            <p>manufacturer: {{ printer.manufacturer }}</p>
-            <p>model: {{ printer.model }}</p>
-            <p>serial_number: {{ printer.serial_number }}</p>
-            <p>toner: {{ printer.toner }}</p>
-            <p>drum: {{ printer.drum }}</p>
+            <h4>Принтер: {{ printer.manufacturer }} {{ printer.model }}</h4>
+            <p>S/N: {{ printer.serial_number }}</p>
+            <p>Тонер касета: {{ printer.toner }}</p>
+            <p>Барабанен модул: {{ printer.drum }}</p>
             <p>MAC: {{ printer.mac_address }}</p>
-            <p>Waranty: {{ printer.document }}</p>
+            <p>Гаранция: {{ printer.document }}</p>
+            <p>{{ printer.user }}</p>
         </article>
     {% endfor %}
 </section>
