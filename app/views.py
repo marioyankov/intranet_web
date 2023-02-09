@@ -43,14 +43,15 @@ def printers(request):
 
     return render(request, 'printers.html', context)
 
-def toners(request):
-    toners = Toner.objects.all()
+# def toners(request):
+#     pass
+#     toners = Toner.objects.all()
 
-    context = {
-        'toners': toners,
-    }
+#     context = {
+#         'toners': toners,
+#     }
 
-    return render(request, 'toners.html', context)
+#     return render(request, 'toners.html', context)
 
 def drums(request):
     drums = Drum.objects.all()
@@ -61,12 +62,36 @@ def drums(request):
 
     return render(request, 'drums.html', context)
 
-class RequestAddView(TemplateView):
-    template_name = "toner_requests.html"
+# class RequestAddView(TemplateView):
+#     template_name = "toner_requests.html"
+
+#     def get(self, *args, **kwargs):
+#         formset = RequestFormSet(queryset=Request.objects.none())
+#         return self.render_to_response({'request_formset': formset})
+    
+#     def post(self, *args, **kwargs):
+#         formset = RequestFormSet(data=self.request.POST)
+
+#         if formset.is_valid():
+#             formset.save()
+#             return redirect(reverse_lazy("toners"))
+        
+#         return self.render_to_response({'request_formset': formset})
+
+
+class TonersRequestAddView(TemplateView):
+    template_name = "toners.html"
 
     def get(self, *args, **kwargs):
         formset = RequestFormSet(queryset=Request.objects.none())
-        return self.render_to_response({'request_formset': formset})
+        toners = Toner.objects.all()
+
+        context = {
+            'toners': toners,
+            'request_formset': formset,
+        }
+
+        return self.render_to_response(context)
     
     def post(self, *args, **kwargs):
         formset = RequestFormSet(data=self.request.POST)
