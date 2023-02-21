@@ -6,26 +6,35 @@
 
 <h1 class="title">Drums</h1>
 
+<li class="supply-btn">
+    <a href="{% url 'drums supply' %}">Drums Supply</a>
+</li>
+
 <section class="drums">
     <article  class="drum-left">
         {% for drum in drums %}
             <article class="drum-body">
                 <h2 class="card-title">{{ drum.model}}</h2>
                 <h3 class="card-subtitle">quantity {{ drum.quantity }}</h3>
-                <p class="card-text">Some example to build card description for example models of printers</p>
+                <h3 class="card-subtitle">Recomended quantity {{ drum.recomended_quantity }}</h3>
             </article>
         {% endfor %}
     </article>
 
-    <article class="drum-right">
-        <h2>Recomended drums in storage</h2>
-        <div class="card-body">
-            {% for drum in drums %}
-                <h4>{{ drum.model }}</h4>
-                <p>{{ drum.recomended_quantity }}</p>
+    <section class="form-section">
+        <form id="form-container" method="POST">
+            {% csrf_token %}
+            {{ request_formset.management_form }}
+            {% for form in request_formset %}
+            <div class="request-form">
+                {{ form.as_p }}
+            </div>
             {% endfor %}
-        </div>
-    </article>
+            <button id="add-form" type="button" class="btn-add-form">+</button>
+            <button type="submit" class="submit-btn">Create Request</button>
+        </form>
+        
+    </section>
 
 </section>
 

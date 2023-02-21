@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Employee, Computer, Laptop, Monitor, Printer, Toner, Drum, Request
+from .models import Employee, Computer, Laptop, Monitor, Printer, Toner, Drum, TonerRequest, DrumRequest
 
 # Register your models here.
 class EmployeeAdmin(admin.ModelAdmin):
@@ -33,10 +33,15 @@ class DrumAdmin(admin.ModelAdmin):
     list_filter = ('model', 'manufacturer')
     search_fields = ['model', ]
 
-class RequestAdmin(admin.ModelAdmin):
+class TonerRequestAdmin(admin.ModelAdmin):
     list_display = ('cartridge_name', 'quantity', 'date_created')
     list_filter = ('date_created', 'cartridge_name')
     search_fields = ['date_created', 'cartridge_name']
+
+class DrumRequestAdmin(admin.ModelAdmin):
+    list_display = ('drum_name', 'quantity', 'date_created')
+    list_filter = ('date_created', 'drum_name')
+    search_fields = ['date_created', 'drum_name']
 
 admin.site.register(Employee, EmployeeAdmin)
 admin.site.register(Computer, ComputerAdmin)
@@ -45,4 +50,5 @@ admin.site.register(Monitor, MonitorAdmin)
 admin.site.register(Printer, PrinterAdmin)
 admin.site.register(Toner, TonerAdmin)
 admin.site.register(Drum, DrumAdmin)
-admin.site.register(Request, RequestAdmin)
+admin.site.register(TonerRequest, TonerRequestAdmin)
+admin.site.register(DrumRequest, DrumRequestAdmin)

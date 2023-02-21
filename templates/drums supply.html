@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<h1 class="title">Drum Supply</h1>
+
+    <section class="form-section-supply">
+        <form id="form-container" method="POST">
+            {% csrf_token %}
+            {{ supply_formset.management_form }}
+            {% for form in supply_formset %}
+            <div class="request-form">
+                {{ form.as_p }}
+            </div>
+            {% endfor %}
+            <button id="add-form" type="button" class="btn-add-form">+</button>
+            <button type="submit" class="submit-btn">Add</button>
+        </form>
+        
+    </section>
+
+
+{% endblock content %}

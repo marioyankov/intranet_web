@@ -124,7 +124,7 @@ class Printer(models.Model):
     def __str__(self):
         return f'{self.user} Printer'
 
-class Request(models.Model):
+class TonerRequest(models.Model):
     CARTRIDGE_CHOICES = list(Toner.objects.values_list('model','model'))
     cartridge_name = models.CharField(max_length=150, choices=CARTRIDGE_CHOICES, default='none')
     quantity = models.IntegerField()
@@ -132,3 +132,12 @@ class Request(models.Model):
 
     def __str__(self):
         return self.cartridge_name
+
+class DrumRequest(models.Model):
+    DRUM_CHOICES = list(Drum.objects.values_list('model','model'))
+    drum_name = models.CharField(max_length=150, choices=DRUM_CHOICES, default='none')
+    quantity = models.IntegerField()
+    date_created = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.drum_name

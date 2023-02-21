@@ -6,13 +6,16 @@
 
 <h1 class="title">Toners</h1>
 
+<li class="supply-btn">
+    <a href="{% url 'toners supply' %}">Toners Supply</a>
+</li>
+
 <section class="toners">
     <article  class="toner-left">
         {% for toner in toners %}
             <article class="toner-body">
                 <h2 class="card-title">{{ toner.model}}</h2>
                 <h3 class="card-subtitle">quantity: {{ toner.quantity }}</h3>
-                <p class="card-text">Some example to build card description for example models of printers</p>
                 <h3 class="card-subtitle">Recomended quantity: {{ toner.recomended_quantity }}</h3>
             </article>
         {% endfor %}
